@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Souce files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header file">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header file\Configs">
+      <UniqueIdentifier>{7981f668-c50d-4f95-b153-b2e421fa1a91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header file\Resouce Files">
+      <UniqueIdentifier>{1fe49581-1b5b-4691-8c0e-04fccdfe9169}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Souce\KalCrossServerZF.cpp">
+      <Filter>Souce files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Souce\Public\KalCrossServerZF.h">
+      <Filter>Header file</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
