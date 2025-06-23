@@ -5,7 +5,7 @@
 
 /Output
 /Build
-config-dev.json	
+config/config-dev.json	
 
 # User-specific files
 *.rsuser
