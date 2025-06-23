@@ -1,0 +1,7 @@
+{
+  "FullName": "KalCrossServerZF",
+  "Description": "Cross-server ZF plugin for KalOnline, allowing players to join ZF from different servers.",
+  Version: "1.0.0",
+  "MinApiVersion" 3.56
+
+}

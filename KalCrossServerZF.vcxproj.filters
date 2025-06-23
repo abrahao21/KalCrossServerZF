@@ -5,14 +5,14 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header file">
+    <Filter Include="Header files">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Header file\Configs">
+    <Filter Include="Header files\Configs">
       <UniqueIdentifier>{7981f668-c50d-4f95-b153-b2e421fa1a91}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header file\Resouce Files">
+    <Filter Include="Header files\Resouce Files">
       <UniqueIdentifier>{1fe49581-1b5b-4691-8c0e-04fccdfe9169}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -23,7 +23,21 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Souce\Public\KalCrossServerZF.h">
-      <Filter>Header file</Filter>
+      <Filter>Header files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Configs\config.json">
+      <Filter>Header files\Configs</Filter>
+    </None>
+    <None Include="Configs\config-commented.json">
+      <Filter>Header files\Configs</Filter>
+    </None>
+    <None Include="Configs\config-dev.json">
+      <Filter>Header files\Configs</Filter>
+    </None>
+    <None Include="Configs\PluginInfo.json">
+      <Filter>Header files\Configs</Filter>
+    </None>
   </ItemGroup>
 </Project>

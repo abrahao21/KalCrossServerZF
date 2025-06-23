@@ -23,7 +23,7 @@
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{30a617e3-74f5-44cd-8440-bce834d3fe50}</ProjectGuid>
     <RootNamespace>KalCrossServerZF</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -70,6 +70,14 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)Build\</OutDir>
+    <IntDir>$(OutDir)\$(Platform)</IntDir>
+    <TargetName>$(ProjectName)</TargetName>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)lib;$(LibraryPath)</LibraryPath>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -123,22 +131,59 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;KALCROSSSERVERZF_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>PROJECT_NAME=$(ProjectName);NDEBUG;KALCROSSSERVERZF_EXPORTS;_WINDOWS;_USRDLL;_SILENCE_ALL_CXX20_DEPRECATION_WARNINGS;_CRT_SEGURE_NO_WARNINGS;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNINGS;_SILENCE_ALL_CXX17_SEPRECATION_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>Default</LanguageStandard_C>
+      <Optimization>Full</Optimization>
+      <AdditionalIncludeDirectories>$(SolutionDir)Includes;$(SolutionDir)Souce\Public;$(SolutionDir)..\AseApi\version\Core\Public;$(SolutionDir)..\AseApi\version\Core\Public\UE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>$(SolutionDir)..\AseApi\out_lib\ArkApi.lib;Ws2_32.lib;crypt32.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>if exist "$(TargetDir)$(TargetFileName).arkapi" del/q "$(TargetDir)$(TargetFileName).arkapi"</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>mkdir "$(SolutionDir)"Output\$(ProjectName)\"
+copy /y "$(TargetDir)$(targetName)" "$(SolutionDir)Output\$(ProjectName)\$(TargetFliName).arkapi"
+copy /y "$(TargetParh)" "$(SolutionDir)Output\$(ProjectName)\$(TargetFliName)"
+copy /y "$(SolutionDir)Configs\config.json" "$(SolutionDir)Output\$(ProjectName)\config.json"
+copy /y "$(SolutionDir)Configs\config-commentad.json" "$(SolutionDir)Output\$(ProjectName)\config-commentad.json"
+copy /y "$(SolutionDir)Configs\PLuginInfo.json" "$(SolutionDir)Output\$(ProjectName)\PLuginInfo.json"
+
+mkdir "C:\asmdata\Servers\Crystal\ShooterGame\Binaries\Win64\ArkApi\Plugins\$(ProjectName)\"
+
+copy /y "$(TargetDir)$(targetName)" "C:\asmdata\Servers\Crystal\ShooterGame\Binaries\Win64\ArkApi\Plugins\$(ProjectName)\$(TargetFileName).arkapi"
+
+copy /y "$(TargetParh)" "C:\asmdata\Servers\Crystal\ShooterGame\Binaries\Win64\ArkApi\Plugins\$(ProjectName)\$(TargetFileName)"
+
+copy /y "$(SolutionDir)Configs\config-dev.json" "C:\asmdata\Servers\Crystal\ShooterGame\Binaries\Win64\ArkApi\Plugins\$(ProjectName)\config.json"
+
+copy /y "$(SolutionDir)Configs\PluginInfo.json" "C:\asmdata\Servers\Crystal\ShooterGame\Binaries\Win64\ArkApi\Plugins\$(ProjectName)\PluginInfo.json"
+
+git add -A
+git commit -m "Auto push after build__TIMESTAMP__"
+git push
+</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Souce\KalCrossServerZF.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Souce\Public\KalCrossServerZF.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Configs\config-commented.json" />
+    <None Include="Configs\config-dev.json" />
+    <None Include="Configs\config.json" />
+    <None Include="Configs\PluginInfo.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

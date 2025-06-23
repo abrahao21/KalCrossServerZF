@@ -1,0 +1,30 @@
+{
+  "General": {
+        "Debug": true,
+
+  }
+
+}
+
+
+
+_SILENCE_ALL_CXX20_DEPRECATION_WARNINGS
+_CRT_SEGURE_NO_WARNINGS
+_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNINGS
+_SILENCE_ALL_CXX17_SEPRECATION_WARNINGS
+
+
+dependecia
+Ws2_32.lib
+cryp32.lib
+iphlpapi.lib
+
+
+linha de comando
+mkdir"$SolutionDir"Output\$(ProjectName)\"
+copy /y "$(TArgetDir)$(targetName)" "$(SolutionDir)Output\$(ProjectName)\$(TargetFliName).arkapi"
+copy /y "$(TargetParh)" "$(SolutionDir)Output\$(ProjectName)\$(TargetFliName)"
+copy /y "$(SolutionDir)Configs\config.json" "$(SolutionDir)Output\$(ProjectName)\config.json"
+copy /y "$(SolutionDir)Configs\config-commentad.json" "$(SolutionDir)Output\$(ProjectName)\config-commentad.json"
+copy /y "$(SolutionDir)Configs\PLuginInfo.json" "$(SolutionDir)Output\$(ProjectName)\PLuginInfo.json"
+mkdir "C:\asmdata\Servers\Crystal\ShooterGame\Binaries\Win64\ArkApi\Plugins\$(ProjectName)\"
