@@ -150,19 +150,16 @@
       <Command>if exist "$(TargetDir)$(TargetFileName).arkapi" del/q "$(TargetDir)$(TargetFileName).arkapi"</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>mkdir "$(SolutionDir)"Output\$(ProjectName)\"
-copy /y "$(TargetDir)$(targetName)" "$(SolutionDir)Output\$(ProjectName)\$(TargetFliName).arkapi"
+      <Command>mkdir "$(SolutionDir)Output\$(ProjectName)\"
+copy /y "$(TargetDir)$(targetName)" "$(SolutionDir)Output\$(ProjectName)\$(TargetFliName).ArkApi"
 copy /y "$(TargetParh)" "$(SolutionDir)Output\$(ProjectName)\$(TargetFliName)"
 copy /y "$(SolutionDir)Configs\config.json" "$(SolutionDir)Output\$(ProjectName)\config.json"
 copy /y "$(SolutionDir)Configs\config-commentad.json" "$(SolutionDir)Output\$(ProjectName)\config-commentad.json"
-copy /y "$(SolutionDir)Configs\PLuginInfo.json" "$(SolutionDir)Output\$(ProjectName)\PLuginInfo.json"
+copy /y "$(SolutionDir)Configs\PluginInfo.json" "$(SolutionDir)Output\$(ProjectName)\PluginInfo.json"
 
 mkdir "C:\asmdata\Servers\Crystal\ShooterGame\Binaries\Win64\ArkApi\Plugins\$(ProjectName)\"
-
-copy /y "$(TargetDir)$(targetName)" "C:\asmdata\Servers\Crystal\ShooterGame\Binaries\Win64\ArkApi\Plugins\$(ProjectName)\$(TargetFileName).arkapi"
-
+copy /y "$(TargetDir)$(targetName)" "C:\asmdata\Servers\Crystal\ShooterGame\Binaries\Win64\ArkApi\Plugins\$(ProjectName)\$(TargetFileName).ArkApi"
 copy /y "$(TargetParh)" "C:\asmdata\Servers\Crystal\ShooterGame\Binaries\Win64\ArkApi\Plugins\$(ProjectName)\$(TargetFileName)"
-
 copy /y "$(SolutionDir)Configs\config-dev.json" "C:\asmdata\Servers\Crystal\ShooterGame\Binaries\Win64\ArkApi\Plugins\$(ProjectName)\config.json"
 
 copy /y "$(SolutionDir)Configs\PluginInfo.json" "C:\asmdata\Servers\Crystal\ShooterGame\Binaries\Win64\ArkApi\Plugins\$(ProjectName)\PluginInfo.json"
