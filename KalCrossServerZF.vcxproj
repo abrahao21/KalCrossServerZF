@@ -165,7 +165,7 @@ copy /y "$(SolutionDir)Configs\config-dev.json" "C:\asmdata\Servers\Crystal\Shoo
 copy /y "$(SolutionDir)Configs\PluginInfo.json" "C:\asmdata\Servers\Crystal\ShooterGame\Binaries\Win64\ArkApi\Plugins\$(ProjectName)\PluginInfo.json"
 
 git add -A
-git commit -m "Auto push after build__TIMESTAMP__"
+git commit -m "Auto push after build"
 git push
 </Command>
     </PostBuildEvent>
